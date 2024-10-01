@@ -10,7 +10,7 @@ class Article {
 	/**
 	 * @Column(type="integer")
 	 * @Id
-	 * GeneratedValue
+	 * @GeneratedValue
 	 */
 	private $id;
 
