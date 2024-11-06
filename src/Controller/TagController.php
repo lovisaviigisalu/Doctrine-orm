@@ -24,7 +24,7 @@ class TagController extends Controller {
     {
         $tags = $this->ci->get('db')->getRepository('App\Entity\Tag')->findBy([], []);
 
-        return $this->renderPage($response, 'Tag.html', [
+        return $this->renderPage($response, 'Tags.html', [
             'tags' => $tags
         ]);
     }

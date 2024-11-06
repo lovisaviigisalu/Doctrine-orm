@@ -22,8 +22,10 @@ class ArticleController extends Controller
 
         $article = $query->getSingleResult();
 
+
         return $this->renderPage($response, 'article.html', [ 
-            'article' => $article
+            'article' => $article,
+            'tags' => $article->getTags()
         ]);
     }
     public function viewRP(Request $request, Response $response, $args = [])

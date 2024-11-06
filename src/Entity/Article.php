@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collection\ArrayCollection;
 use DateTime;
 /**
  *@Entity
@@ -37,7 +37,11 @@ class Article {
 	 */
 	private $body;
 
-    /**@ManyToOne(targetEntity="Author", inversedBy="articles")
+    /** @ManyToMany(targetEntity="Author")
+	 * @JoinTable(name="article_authors",
+	 *      joinColumns={@JoinColumn(name="article_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@JoinColumn(name="author_id", referencedColumnName="id")}
+	 * )
      */
 
     private $author;
@@ -48,8 +52,16 @@ class Article {
 	 */
 	private $published;
 
+	/** 
+	 * @ManyToMany(targetEntity="Tag", cascade={"persist"})
+	 * @JoinTable(name="article_tags")
+	 * @JoinColumn(referencedColumnName="id", nullable=false)
+	 */
+	private $tags;
 
-
+	public function __construct(){
+		$this->tags = new ArrayCollection; 
+	}
 	public function getId(){
 		return $this->id;
 	}
@@ -97,5 +109,7 @@ class Article {
     public function setAuthor($value){
         $this->author = $value;
     }
-	
+	public function getTags(){
+		return $this->tags;
+	}
 } 

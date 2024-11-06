@@ -18,7 +18,7 @@ class Tag {
 	*/
 	private $name;
 	/**
-	* @ManyToMany(targetEntity="Article", mappedBy="author", cascade={"persist"})
+	* @ManyToMany(targetEntity="Article", cascade={"persist"})
 	* @JoinTable(name="article_tags")
 	* @JoinColumn(referencedColumnName="id", nullable=false)
 	*/
