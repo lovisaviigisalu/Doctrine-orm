@@ -37,12 +37,18 @@ class Article {
 	 */
 	private $body;
 
+    /**@ManyToOne(targetEntity="Author", inversedBy="articles")
+     */
+
+    private $author;
+
 
 	/**
 	 * @Column(type="datetime")
 	 */
 	private $published;
-	
+
+
 
 	public function getId(){
 		return $this->id;
@@ -85,5 +91,11 @@ class Article {
 	  public function setPublished(DateTime $value = null) {
         $this->published = $value;
     }
+    public function getAuthor(){
+        return $this->author;
+    }
+    public function setAuthor($value){
+        $this->author = $value;
+    }
 	
-}
+} 

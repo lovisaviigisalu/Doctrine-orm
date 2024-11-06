@@ -2,8 +2,8 @@
 
 
 namespace App\Entity;
-
-use Doctrine\Common\Collection\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  *@Entity
