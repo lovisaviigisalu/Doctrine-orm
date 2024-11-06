@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-use Doctrine\Common\Collection\ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 use DateTime;
 /**
  *@Entity
@@ -53,14 +53,14 @@ class Article {
 	private $published;
 
 	/** 
-	 * @ManyToMany(targetEntity="Tag", cascade={"persist"})
+	 * @ManyToMany(targetEntity="Tag", inversedBy="articles", cascade={"persist"})
 	 * @JoinTable(name="article_tags")
 	 * @JoinColumn(referencedColumnName="id", nullable=false)
 	 */
 	private $tags;
 
-	public function __construct(){
-		$this->tags = new ArrayCollection; 
+	public function __construct() {
+		$this->tags = new ArrayCollection();
 	}
 	public function getId(){
 		return $this->id;
