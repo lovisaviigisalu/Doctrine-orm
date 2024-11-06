@@ -58,7 +58,7 @@ class ArticleAdminController extends Controller
                 $this->ci->get('db')->remove($article);
                 $this->ci->get('db')->flush();
 
-                return $response->withRedirect('/admin.article');
+                return $response->withRedirect('/admin/article');
             };
 
             $article->setName($request->getParam('name'));

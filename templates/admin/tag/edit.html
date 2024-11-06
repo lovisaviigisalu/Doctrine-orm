@@ -1,0 +1,22 @@
+<p class="breadcrumbs"><a href="/admin/tag">Admin</a> &raquo;
+<h1>Edit tag</h1>
+
+{{#tag}}
+<form method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="{{getName}}">
+
+    <button>Update</button>
+</form>
+
+<h2>Delete article</h2>
+
+<p>
+    If you want to remove this article, use the button below.
+</p>
+
+<form method="post">
+    <input type="hidden" name="action" value="delete">
+    <button class="danger">Delete</button>
+</form>
+{{/tag}}

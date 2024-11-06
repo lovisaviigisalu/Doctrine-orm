@@ -28,6 +28,11 @@ $app->get('/', '\App\Controller\DefaultController:homepage');
 $app->get('/admin/article', '\App\Controller\ArticleAdminController:view');
 $app->any('/admin/article/create', '\App\Controller\ArticleAdminController:create');
 $app->any('/admin/article/{id}', '\App\Controller\ArticleAdminController:edit');
+
+$app->get('/admin/tag', '\App\Controller\TagAdminController:view');
+$app->get('/admin/tag/create', '\App\Controller\TagAdminController:create');
+$app->any('/admin/tag/{id}', '\App\Controller\TagAdminController:edit');
+
 $app->get('/article/{slug}', '\App\Controller\ArticleController:view');
 $app->get('/author/{id}', '\App\Controller\AuthorController:author');
 $app->get('/tags', '\App\Controller\TagController:view');
